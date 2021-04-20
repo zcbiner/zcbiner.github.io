@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: cbin
-subtitle: 'personal blog'
-description: 'cbin的个人博客'
-keywords: ''
-author: cbin
+title: Hexo
+subtitle: ''
+description: ''
+keywords:
+author: John Doe
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://github.com/zcbiner
+url: http://example.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
