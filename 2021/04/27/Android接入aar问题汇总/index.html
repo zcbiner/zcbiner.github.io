@@ -17,20 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hello World | cbin的个人博客</title>
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <title>Android接入aar问题汇总 | cbin的个人博客</title>
+  <meta name="description" content="以前觉得接入aar是一件非常简单的事情，然而当主工程庞大复杂，aar是外部提供且不能随意修改时，问题就变得很复杂了。本文记录接入aar时遇到的问题与解决思路。 1.aar接入方式如果aar发布到了maven库，那么直接依赖maven库的地址就行。比如引入AndroidX的库： 1implementation &#39;androidx.arch.core:core-runtime:2.1.0&amp;#3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/04/20/hello-world/index.html">
+<meta property="og:title" content="Android接入aar问题汇总">
+<meta property="og:url" content="http://example.com/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="以前觉得接入aar是一件非常简单的事情，然而当主工程庞大复杂，aar是外部提供且不能随意修改时，问题就变得很复杂了。本文记录接入aar时遇到的问题与解决思路。 1.aar接入方式如果aar发布到了maven库，那么直接依赖maven库的地址就行。比如引入AndroidX的库： 1implementation &#39;androidx.arch.core:core-runtime:2.1.0&amp;#3">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-20T08:30:45.423Z">
-<meta property="article:modified_time" content="2021-04-20T08:30:45.423Z">
+<meta property="article:published_time" content="2021-04-27T02:15:47.000Z">
+<meta property="article:modified_time" content="2021-04-27T10:27:58.568Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2021/04/20/hello-world/index.html">
+  <link rel="canonical" href="http://example.com/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -201,7 +202,7 @@
   <div class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -211,7 +212,7 @@
   <div class="widget">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/other/" style="font-size: 13px;">other</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a>
+      <a href="/tags/Android/" style="font-size: 13px;">Android</a> <a href="/tags/other/" style="font-size: 13px;">other</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 13px;">算法</a>
     </div>
   </div>
 
@@ -232,6 +233,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="title">Android接入aar问题汇总</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-27T02:15:47.000Z" itemprop="datePublished">2021-04-27</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -262,21 +278,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2021/04/20/hello-world/" class="title">Hello World</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-04-20T08:30:45.423Z" itemprop="datePublished">2021-04-20</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -290,14 +291,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Android接入aar问题汇总" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Android接入aar问题汇总
     </h1>
   
 
@@ -305,34 +306,61 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2021/04/20/hello-world/" class="article-date">
-	  <time datetime="2021-04-20T08:30:45.423Z" itemprop="datePublished">2021-04-20</time>
+	<a href="/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="article-date">
+	  <time datetime="2021-04-27T02:15:47.000Z" itemprop="datePublished">2021-04-27</time>
 	</a>
 </span>
         
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
+  </span>
+
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/04/20/hello-world/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <p>以前觉得接入aar是一件非常简单的事情，然而当主工程庞大复杂，aar是外部提供且不能随意修改时，问题就变得很复杂了。本文记录接入aar时遇到的问题与解决思路。</p>
+<h4 id="1-aar接入方式"><a href="#1-aar接入方式" class="headerlink" title="1.aar接入方式"></a>1.aar接入方式</h4><p>如果aar发布到了maven库，那么直接依赖maven库的地址就行。比如引入AndroidX的库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;androidx.arch.core:core-runtime:2.1.0&#39;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>如果没有发布，可以考虑本地引入，将aar拷贝到libs目录下，然后：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把aar拷贝到libs目录下</span></span><br><span class="line">implementation fileTree(<span class="attr">dir:</span> <span class="string">&#x27;libs&#x27;</span>, <span class="attr">include:</span> [<span class="string">&#x27;*.jar&#x27;</span>, <span class="string">&#x27;*.aar&#x27;</span>])</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>或者这样定义：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">repositories &#123;</span><br><span class="line">	flatDir &#123;</span><br><span class="line">		dirs <span class="string">&#x27;libs&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">	implementation(<span class="attr">name:</span><span class="string">&#x27;aarname&#x27;</span>, <span class="attr">ext:</span><span class="string">&#x27;aar&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h4 id="2-库冲突"><a href="#2-库冲突" class="headerlink" title="2. 库冲突"></a>2. 库冲突</h4><p>如果主工程和aar引用了相同的库，比如OKHttp，但是使用版本不一致，那么就是编译出错。解决方法就是使用相同版本的库。</p>
+<h4 id="3-aar中库缺失"><a href="#3-aar中库缺失" class="headerlink" title="3. aar中库缺失"></a>3. aar中库缺失</h4><p>在我们的案例中，aar没有包含Kotlin协程库，然而aar里用到了协程，导致编译出错。错误日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AndroidRuntime: FATAL EXCEPTION: main Process: com.xxx.xxx, PID: 31163</span><br><span class="line">java.lang.NoClassDefFoundError: Failed resolution of : Lkotlinx&#x2F;coroutines&#x2F;GlobalScope</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>解决方法：在主工程中引入协程相关库</p>
+<h4 id="4-attr冲突"><a href="#4-attr冲突" class="headerlink" title="4.attr冲突"></a>4.attr冲突</h4><p>报错日志类似于这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: duplicate value for resource &#39;attr&#x2F;content&#39; with config &#39;&#39;.</span><br></pre></td></tr></table></figure>
+
+<p>这说明是aar中定义在values中的attr属性值与主工程中有命名冲突。全局搜索：<code>name=&quot;content&quot;</code>应该可以在主工程找到相关属性。可以修改主工程的属性值，避免冲突，或者推动aar方修改。</p>
+<h4 id="5-aar-so包问题"><a href="#5-aar-so包问题" class="headerlink" title="5. aar so包问题"></a>5. aar so包问题</h4><p>报错如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.UnsatisfiedLinkError: dlopen failed: library &quot;xxx.so&quot; not found</span><br></pre></td></tr></table></figure>
+
+<p>首先要检查这个so包是否包含在了aar中，如果没有说明aar打包就有问题，这个只能由aar方解决。如果有，那可能是abi指定问题。我们主工程使用的是armeabi，因此统一指定位armeabi。</p>
+<p>在build文件中指定abi：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        ndk &#123;</span><br><span class="line">            abiFilters <span class="string">&#x27;armeabi&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-support包和AndroidX冲突"><a href="#6-support包和AndroidX冲突" class="headerlink" title="6. support包和AndroidX冲突"></a>6. support包和AndroidX冲突</h4><p>aar中使用的还是support包，主工程用的是AndroidX。</p>
+<p>aar中继承的是<code>AppCompatActivity</code>，运行时报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with this activity</span><br></pre></td></tr></table></figure>
+
+<p>Google后续只会支持AndroidX，support包已经不维护了。因此把aar中使用的support包都通过工具转换为AndroidX是一个不错的选择。参考文章：<a target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/command-line/jetifier?hl=zh_cn">jetifier</a>。</p>
+<h4 id="7-总结"><a href="#7-总结" class="headerlink" title="7.总结"></a>7.总结</h4><p>当主工程相当庞大时，很简单的改动都会变得复杂。主工程的编译时间太久了，这是一个很头痛的事情，每次改动编译都会浪费大量的时间。</p>
+<p>如果对外提供aar，一定要保证aar的质量，完善使用文档，不然对接入方会造成很多麻烦。</p>
 
       
     </div>
@@ -342,7 +370,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2021/04/20/hello-world/" title="Hello World" target="_blank" rel="external">http://example.com/2021/04/20/hello-world/</a>
+      <a href="http://example.com/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="Android接入aar问题汇总" target="_blank" rel="external">http://example.com/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -388,10 +416,10 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2021/04/20/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="个人博客搭建"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
     
+    <li class="next">
+      <a href="/2021/04/20/%E9%93%BE%E8%A1%A8%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/" title="链表刷题总结"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
   </ul>
