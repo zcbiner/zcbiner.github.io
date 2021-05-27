@@ -5,4 +5,4 @@ layout: about
 comments: false
 sidebar: custom
 ---
-个人详细介绍
+一位还在好好努力的Android开发。
