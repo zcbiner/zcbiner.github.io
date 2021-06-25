@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>CMake入门 | cbin的个人博客</title>
+  <meta name="description" content="CMake 是一个跨平台的开源构建工具，Android NDK开发就是使用CMake进行构建的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMake入门">
+<meta property="og:url" content="http://example.com/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CMake 是一个跨平台的开源构建工具，Android NDK开发就是使用CMake进行构建的。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-24T13:02:34.000Z">
+<meta property="article:modified_time" content="2021-06-25T03:01:51.555Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zcbiner" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">cbin</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Android Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zcbiner" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>你好呀!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/other/" rel="tag">other</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Android/" style="font-size: 14px;">Android</a> <a href="/tags/other/" style="font-size: 13px;">other</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px;">算法</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/27/%E7%BA%BF%E6%80%A7%E6%8E%92%E5%BA%8F/" class="title">线性排序</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-27T09:25:16.000Z" itemprop="datePublished">2021-05-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" class="title">Android接入aar问题汇总</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-27T02:15:47.000Z" itemprop="datePublished">2021-04-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2021/04/20/%E9%93%BE%E8%A1%A8%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/" class="title">链表刷题总结</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-04-20T11:27:25.000Z" itemprop="datePublished">2021-04-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="title">CMake入门</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-02-24T13:02:34.000Z" itemprop="datePublished">2019-02-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2019/01/05/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="title">个人博客搭建</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-05T09:46:34.000Z" itemprop="datePublished">2019-01-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Cmake简介与使用" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CMake入门
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="article-date">
+	  <time datetime="2019-02-24T13:02:34.000Z" itemprop="datePublished">2019-02-24</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="leancloud_visitors"  data-flag-title="CMake入门">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.5k(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 6(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>CMake 是一个跨平台的开源构建工具，Android NDK开发就是使用CMake进行构建的。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="一、CMake基础"><a href="#一、CMake基础" class="headerlink" title="一、CMake基础"></a>一、CMake基础</h3><h4 id="1-CMakeLists-txt"><a href="#1-CMakeLists-txt" class="headerlink" title="1.CMakeLists.txt"></a>1.<code>CMakeLists.txt</code></h4><p>CMakeLists.txt是一个纯文本文件，是cmake项目配置文件，基本上更改项目构建配置都是围绕着这个文件进行。如果工程存在多个目录，可以在每个要管理的目录都添加一个 CMakeLists.txt 文件。</p>
+<p>CMakeList.txt 文件来定制整个编译流程，然后再根据目标用户的平台进一步生成所需的本地化 Makefile 和工程文件。</p>
+<h4 id="2-语法规则"><a href="#2-语法规则" class="headerlink" title="2.语法规则"></a>2.语法规则</h4><ul>
+<li>使用 <code>#</code> 作为注释</li>
+<li>变量使用 ${} 方式取值，但是在 IF 控制语句中是直接使用变量名</li>
+<li>指令名(参数1 参数2 …)，其中参数之间使用空格或分号隔开</li>
+<li>指令与大小写无关，但参数和变量是大小写相关的</li>
+</ul>
+<h4 id="3-命令"><a href="#3-命令" class="headerlink" title="3.命令"></a>3.命令</h4><p>如果要在命令行执行cmake命令，需要了解CMake常用执行命令格式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake [&lt;options&gt;] (&lt;path-to-source&gt; | &lt;path-to-existing-build&gt;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>内部构建</li>
+</ul>
+<p>直接在源码目录执行cmake被称为内部构建，如默认命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake .</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>外部构建</li>
+</ul>
+<p>执行cmake命令时，指定生成产物路径被称为外部构建。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake ..</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake [参数] [指定进行编译的目录或存放Makefile文件的目录] [指定CMakeLists.txt文件所在的目录]</span><br></pre></td></tr></table></figure>
+
+<p>由于内部构建生成的临时文件可能比源代码还要多，非常影响工程的目录结构和可读性，因此实际使用时，尽量使用外部构建。</p>
+<h4 id="4-步骤"><a href="#4-步骤" class="headerlink" title="4.步骤"></a>4.步骤</h4><p>在 linux 平台下使用 CMake 生成 Makefile 并编译的流程如下：</p>
+<ol>
+<li><p>在源码目录编写 CMake 配置文件 CMakeLists.txt 。</p>
+</li>
+<li><p>执行命令 <code>cmake PATH</code> 。其中， <code>PATH</code> 是 CMakeLists.txt 所在的目录。</p>
+</li>
+<li><p>使用 <code>make</code> 命令进行编译。</p>
+</li>
+</ol>
+<h3 id="二、使用cmake构建运行"><a href="#二、使用cmake构建运行" class="headerlink" title="二、使用cmake构建运行"></a>二、使用cmake构建运行</h3><p>示例使用cmake构建运行一个简单项目。假设有三个文件：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// PrintTest.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> CMAKEDEMO_PRINTTEST_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CMAKEDEMO_PRINTTEST_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintTest</span> &#123;</span></span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">const</span> std::string&amp; content)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">//CMAKEDEMO_PRINTTEST_H</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// PrintTest.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;PrintTest.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintTest::print</span><span class="params">(<span class="keyword">const</span> std::string&amp; content)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, content.<span class="built_in">data</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.cpp</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;PrintTest.h&quot;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    PrintTest printTest = <span class="built_in">PrintTest</span>();</span><br><span class="line">    printTest.<span class="built_in">print</span>(<span class="string">&quot;---- let me test cmake! ----&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建CMakeLists.txt文件，并进行如下配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 指定最低cmake版本要求</span></span><br><span class="line">cmake_minimum_required(VERSION 3.16)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建项目标识</span></span><br><span class="line">project(cmakeDemo)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置c++ 11</span></span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加名为testCmake的目标，类型为可执行文件</span></span><br><span class="line">add_executable(testCmake main.cpp PrintTest.cpp PrintTest.h)</span><br></pre></td></tr></table></figure>
+
+<p>使用外部构建，在源码目录新建build文件夹，<code>cd /build</code>，然后依次执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">./testCmake</span><br></pre></td></tr></table></figure>
+
+<p>cmake用于构建，make用于编译和链接。make执行完后会生成的可执行文件为：testCmake，在命令行执行这个文件即可看到输出。</p>
+<h3 id="三、CMake指令"><a href="#三、CMake指令" class="headerlink" title="三、CMake指令"></a>三、CMake指令</h3><p>ps: 指令与大小写无关.</p>
+<h4 id="1-project"><a href="#1-project" class="headerlink" title="1.project"></a>1.project</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">project(cmakeDemo)</span><br></pre></td></tr></table></figure>
+
+<p>指定项目名。</p>
+<h4 id="2-set"><a href="#2-set" class="headerlink" title="2.set"></a>2.set</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span>(CMAKE_CXX_STANDARD 11)</span><br><span class="line"><span class="built_in">set</span>(CMAKE_CXX_FLAGS -g -Wall)</span><br></pre></td></tr></table></figure>
+
+<p>定义变量， 多个变量用空格或分号隔开。当需要用到定义的 CMAKE_CXX_STANDARD 变量时，需要用${var}的形式来引用，如：${SRC_LIST}<br>不过，在 IF 控制语句中可以直接使用变量名。</p>
+<h4 id="3-message"><a href="#3-message" class="headerlink" title="3.message"></a>3.message</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">message(STATUS <span class="string">&quot;CMAKE_CXX_FLAGS: &quot;</span> <span class="string">&quot;<span class="variable">$&#123;CMAKE_CXX_FLAGS&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>message 可以在构建的过程中向 stdout 输出一些信息。包含了三种类型：</p>
+<ul>
+<li>SEND_ERROR，产生错误，生成过程被跳过；</li>
+<li>STATUS，输出前缀为–的信息；（由上面例子也可以看到会在终端输出相关信息）</li>
+<li>FATAL_ERROR，立即终止所有 CMake 过程；</li>
+</ul>
+<h4 id="4-add-executable"><a href="#4-add-executable" class="headerlink" title="4.add_executable"></a>4.add_executable</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_executable(testCmake main.cpp PrintTest.cpp PrintTest.h)</span><br></pre></td></tr></table></figure>
+
+<p>将一组源文件 source 生成一个可执行文件。 source 可以是多个源文件，也可以是对应定义的变量.</p>
+<h4 id="5-cmake-minimun-required"><a href="#5-cmake-minimun-required" class="headerlink" title="5.cmake_minimun_required"></a>5.cmake_minimun_required</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10)</span><br></pre></td></tr></table></figure>
+
+<p>用来指定 CMake 最低版本为3.10，如果没指定，执行 cmake 命令时可能会出错</p>
+<h4 id="6-add-subdirectory"><a href="#6-add-subdirectory" class="headerlink" title="6.add_subdirectory"></a>6.add_subdirectory</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_subdirectory(subProjectName)</span><br></pre></td></tr></table></figure>
+
+<p>用于向当前工程添加存放源文件的子目录，并可以指定中间二进制和目标二进制存放的位置。</p>
+<h4 id="7-add-library"><a href="#7-add-library" class="headerlink" title="7.add_library"></a>7.add_library</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译生成libtestCmake.so</span></span><br><span class="line">add_library(testCmake SHARED main.cpp PrintTest.cpp PrintTest.h)</span><br></pre></td></tr></table></figure>
+
+
+<p>将一组源文件 source 编译出一个库文件，并保存为 libname.so (lib 前缀是生成文件时 CMake自动添加上去的)。其中有三种库文件类型，不写的话，默认为 STATIC。</p>
+<ul>
+<li>SHARED: 表示动态库，可以在(Java)代码中使用 <code>System.loadLibrary(name)</code> 动态调用；</li>
+<li>STATIC: 表示静态库，集成到代码中会在编译时调用；</li>
+<li>MODULE: 只有在使用 dyId 的系统有效，如果不支持 dyId，则被当作 SHARED 对待；</li>
+<li>EXCLUDE_FROM_ALL: 表示这个库不被默认构建，除非其他组件依赖或手工构建</li>
+</ul>
+<h4 id="8-find-library"><a href="#8-find-library" class="headerlink" title="8.find_library"></a>8.find_library</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#语法如下：</span></span><br><span class="line">find_library (&lt;VAR&gt; name1 [path1 path2 ...]) <span class="comment"># 在path1等路径中寻找name1库，找到后存放到变量&lt;VAR&gt;中。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#例子：查找本地 log 库</span></span><br><span class="line">find_library(log-lib <span class="built_in">log</span>)</span><br></pre></td></tr></table></figure>
+
+<p>用于查找库。</p>
+<h4 id="9-include-directories和target-include-directories"><a href="#9-include-directories和target-include-directories" class="headerlink" title="9.include_directories和target_include_directories"></a>9.include_directories和target_include_directories</h4><p>两个命令的作用都是：指定<strong>目标</strong>包含的头文件路径。区别是：</p>
+<p>include_directories是一个全局包含，向下传递。也就是说在顶层的CMakeLists.txt加了include_directories，那么不管子目录需不需要都会包含。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target_include_directories(mylib PUBLIC include)</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-target-link-libraries"><a href="#10-target-link-libraries" class="headerlink" title="10.target_link_libraries"></a>10.target_link_libraries</h4><p>该指令的作用为将目标文件与库文件进行链接。<br>如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">target_link_libraries (Demo $&#123;EXTRA_LIBS&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-set-target-properties"><a href="#11-set-target-properties" class="headerlink" title="11.set_target_properties"></a>11.set_target_properties</h4><p>这条指令可以用来设置输出的名称，对于动态库，还可以用来指定动态库版本和API版本。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set_target_properties(target1 target2 ...</span><br><span class="line">                      PROPERTIES prop1 value1</span><br><span class="line">                      prop2 value2 ...)</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、CMake在Android中的使用"><a href="#四、CMake在Android中的使用" class="headerlink" title="四、CMake在Android中的使用"></a>四、CMake在Android中的使用</h3><p>本地使用 libjpeg.so 示例：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.4.1)</span><br><span class="line"><span class="comment">#设置生成的so动态库最后输出的路径</span></span><br><span class="line"><span class="built_in">set</span>(CMAKE_LIBRARY_OUTPUT_DIRECTORY <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/src/main/jniLibs/<span class="variable">$&#123;ANDROID_ABI&#125;</span>)</span><br><span class="line"><span class="comment">#指定要引用的libjpeg.so的头文件目录</span></span><br><span class="line"><span class="built_in">set</span>(LIBJPEG_INCLUDE_DIR src/main/cpp/include)</span><br><span class="line">include_directories(<span class="variable">$&#123;LIBJPEG_INCLUDE_DIR&#125;</span>)</span><br><span class="line"><span class="comment">#导入libjpeg动态库 SHARED；静态库为STATIC</span></span><br><span class="line">add_library(jpeg SHARED IMPORTED)</span><br><span class="line"><span class="comment">#对应so目录，注意要先 add_library，再set_target_properties</span></span><br><span class="line">set_target_properties(jpeg PROPERTIES IMPORTED_LOCATION <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/libs/<span class="variable">$&#123;ANDROID_ABI&#125;</span>/libjpeg.so)</span><br><span class="line">add_library(compress SHARED src/main/cpp/compress.c)</span><br><span class="line">find_library(graphics jnigraphics)</span><br><span class="line">find_library(log-lib <span class="built_in">log</span>)</span><br><span class="line"><span class="comment">#添加链接上面所有find 和 add 的 library</span></span><br><span class="line">target_link_libraries(compress jpeg <span class="variable">$&#123;log-lib&#125;</span> <span class="variable">$&#123;graphics&#125;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c71ec5d63f0d">Android NDK 开发：CMake 使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">CMake Tutorial</a></li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/" title="CMake入门" target="_blank" rel="external">http://example.com/2019/02/24/Cmake%E7%AE%80%E4%BB%8B%E4%B8%8E%E4%BD%BF%E7%94%A8/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zcbiner" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zcbiner" target="_blank"><span class="text-dark">cbin</span><small class="ml-1x">Android Developer</small></a></h3>
+        <div>日拱一卒无有尽，功不唐捐终入海。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/04/20/%E9%93%BE%E8%A1%A8%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/" title="链表刷题总结"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2019/01/05/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="个人博客搭建"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zcbiner" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'pIGY7aDYCq56mxkWYiXvIbNM-gzGzoHsz',
+    appKey: 'kGvIapMMMU5s3ReaeCws0bDw',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
