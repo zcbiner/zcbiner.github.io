@@ -26,7 +26,7 @@
 <meta property="og:description" content="总结平时使用Git的过程中，好用但是经常忘记的命令；记录使用Git中遇到的问题及解决方案。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2018-08-15T12:24:30.000Z">
-<meta property="article:modified_time" content="2021-07-07T02:40:48.724Z">
+<meta property="article:modified_time" content="2021-07-13T09:13:02.678Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="other">
 <meta name="twitter:card" content="summary">
@@ -367,10 +367,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2018/08/15/Git%E5%AE%9E%E8%B7%B5%E5%AE%9D%E5%85%B8/#comments" class="article-comment-link">Comments</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1k(words)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1.2k(words)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 3(minutes)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 4(minutes)</span>
 	
 
       </div>
@@ -398,6 +398,18 @@
 
 <p>删除本地版本库上那些失效的远程追踪分支:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote prune origin --dry-run</span><br></pre></td></tr></table></figure>
+
+<h3 id="HEAD-和HEAD"><a href="#HEAD-和HEAD" class="headerlink" title="HEAD~和HEAD^"></a>HEAD~和HEAD^</h3><p><code>~</code>和<code>^</code> 让我傻傻分不清楚，直到我看到了这个：<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git">What’s the difference between HEAD^ and HEAD~ in Git?</a></p>
+<p>简单的说：</p>
+<ol>
+<li><code>~</code>是在当前分支上回溯，后面的数字表示回溯几步。</li>
+<li>如果分支没有merge发生，<code>~</code>和<code>^</code>是一样的效果。但如果发生了merge，那么<code>^</code>表示是哪条merge过来的分支的第一个提交。</li>
+</ol>
+<p>从下面的图示可以更好的理解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">G   H   I   J</span><br><span class="line"> \ &#x2F;     \ &#x2F;</span><br><span class="line">  D   E   F</span><br><span class="line">   \  |  &#x2F; \</span><br><span class="line">    \ | &#x2F;   |</span><br><span class="line">     \|&#x2F;    |</span><br><span class="line">      B     C</span><br><span class="line">       \   &#x2F;</span><br><span class="line">        \ &#x2F;</span><br><span class="line">         A</span><br><span class="line">A &#x3D;      &#x3D; A^0</span><br><span class="line">B &#x3D; A^   &#x3D; A^1     &#x3D; A~1</span><br><span class="line">C &#x3D; A^2</span><br><span class="line">D &#x3D; A^^  &#x3D; A^1^1   &#x3D; A~2</span><br><span class="line">E &#x3D; B^2  &#x3D; A^^2</span><br><span class="line">F &#x3D; B^3  &#x3D; A^^3</span><br><span class="line">G &#x3D; A^^^ &#x3D; A^1^1^1 &#x3D; A~3</span><br><span class="line">H &#x3D; D^2  &#x3D; B^^2    &#x3D; A^^^2  &#x3D; A~2^2</span><br><span class="line">I &#x3D; F^   &#x3D; B^3^    &#x3D; A^^3^</span><br><span class="line">J &#x3D; F^2  &#x3D; B^3^2   &#x3D; A^^3^2</span><br></pre></td></tr></table></figure>
+
+<p>另外有一个命令，可以让git显示详细的merge、多分支情况：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline --graph --all</span><br></pre></td></tr></table></figure>
 
 <h3 id="使用Worktree"><a href="#使用Worktree" class="headerlink" title="使用Worktree"></a>使用Worktree</h3><p>项目工程很庞大，如果我重新<code>clone</code>一份代码都要半个多小时以上。而经常会有在本地做开发或者调试时，突然要看另外一个较紧急的问题，此时就想要多开一个项目工程。<code>worktree</code>可以很好的解决这个问题。</p>
 <p>git worktree非常适合大型项目又需要维护多个分支，想要避免来回切换的场景。其有以下几个优点：</p>
