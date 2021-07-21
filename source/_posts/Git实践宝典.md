@@ -55,6 +55,32 @@ git branch -m (oldName) (newName)
 git remote prune origin --dry-run
 ```
 
+### 工作区、暂存区之间的切换
+
+有的时候习惯性``git add .``将所有的文件都提交到了暂存区，可是有部分文件并不想提交。怎么办呢？这里总结下`git`各个区之间的切换。
+
+1.在工作区放弃修改
+
+当你修改了文件，但发现改错了，可使用以下命令：
+
+```shell
+git checkout -- filepathname //放弃修改某个文件，例如： git checkout -- readme.md
+git checkout .  //放弃所有修改的文件
+git restore . //放弃所有修改的文件
+```
+
+2.在暂存区放弃修改
+
+当你想要提交时，发现不想提交的文件都在暂存区，那么可以使用如下命令：
+
+```shell
+git reset HEAD filepathname //恢复某个文件到工作区，例如： git reset HEAD readme.md
+git reset HEAD . //恢复所有文件到工作区
+git reset  //恢复所有文件到工作区
+```
+
+注意：这里只是恢复到了工作区，如果想放弃修改的代码还需要执行步骤1（工作区）中的操作
+
 ### HEAD~和HEAD^
 
 `~`和`^` 让我傻傻分不清楚，直到我看到了这个：[What's the difference between HEAD^ and HEAD~ in Git?](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
@@ -193,3 +219,12 @@ git reset --hard HEAD
 git remote prune origin
 ```
 
+上面的命令，每次`pull`完想要重新`pull`时，还是会出问题，也就是说要多次执行。
+
+还可以执行以下命令，该命令比较耗时:
+
+```shell
+git gc --prune=now
+```
+
+可参考：[Git and nasty “error: cannot lock existing info/refs fatal”](https://stackoverflow.com/questions/6656619/git-and-nasty-error-cannot-lock-existing-info-refs-fatal)
