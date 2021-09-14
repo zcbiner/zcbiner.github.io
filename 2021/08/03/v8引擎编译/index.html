@@ -17,20 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>关于 | cbin的个人博客</title>
-  <meta name="description" content="个人简介">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://example.com/about/index.html">
+  <title>v8引擎编译 | cbin的个人博客</title>
+  <meta name="description" content="在Linux环境下编译出v8引擎的Android so包。 一、v8引擎代码下载v8引擎代码需要使用 depot tools 下载，首先在本地找一个合适的路径下载该工具： 1git clone https:&#x2F;&#x2F;chromium.googlesource.com&#x2F;chromium&#x2F;tools&#x2F;depot_tools.git  然后将depot tools加入环境变量：（需要将实际的目录替换下面命令中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="v8引擎编译">
+<meta property="og:url" content="http://example.com/2021/08/03/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="个人简介">
+<meta property="og:description" content="在Linux环境下编译出v8引擎的Android so包。 一、v8引擎代码下载v8引擎代码需要使用 depot tools 下载，首先在本地找一个合适的路径下载该工具： 1git clone https:&#x2F;&#x2F;chromium.googlesource.com&#x2F;chromium&#x2F;tools&#x2F;depot_tools.git  然后将depot tools加入环境变量：（需要将实际的目录替换下面命令中">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-04-27T10:48:09.673Z">
-<meta property="article:modified_time" content="2021-04-27T10:48:09.670Z">
+<meta property="article:published_time" content="2021-08-03T10:54:17.000Z">
+<meta property="article:modified_time" content="2021-08-11T08:27:01.611Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/about/index.html">
+  <link rel="canonical" href="http://example.com/2021/08/03/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -317,155 +318,206 @@
 </aside>
 
   
-  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-    <div class="widget">
-      <h3 class="widget-title">Links</h3>
-      <div class="widget-body">
-        <ul class="link-list lh-2x">
-          
-          <li>
-            Github:
-            <a href="https://github.com/zcbiner" target="_blank">https://github.com/zcbiner</a>
-          </li>
-          
-          <li>
-            Blog:
-            <a href="http://blog.cofess.com" target="_blank">http://blog.cofess.com</a>
-          </li>
-          
-          <li>
-            微博:
-            <a href="http://weibo.com/cofess" target="_blank">http://weibo.com/cofess</a>
-          </li>
-          
-          <li>
-            花瓣:
-            <a href="http://huaban.com/cofess" target="_blank">http://huaban.com/cofess</a>
-          </li>
-          
-          <li>
-            Behance:
-            <a href="https://www.behance.net/cofess" target="_blank">https://www.behance.net/cofess</a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">Skills</h3>
-      <div class="widget-body">
-        <ul class="skill-list lh-2x">
-          
-          <li class="clearfix">
-            <span>Git</span>
-            <span class="pull-right">★★★☆☆</span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Gulp</span>
-            <span class="pull-right">★★★☆☆</span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Javascript</span>
-            <span class="pull-right">★★★☆☆</span>
-          </li>
-          
-          <li class="clearfix">
-            <span>HTML+CSS</span>
-            <span class="pull-right">★★★☆☆</span>
-          </li>
-          
-          <li class="clearfix">
-            <span>Bootstrap</span>
-            <span class="pull-right">★★★☆☆</span>
-          </li>
-          
-          <li class="clearfix">
-            <span>ThinkPHP</span>
-            <span class="pull-right">★★★☆☆</span>
-          </li>
-          
-          <li class="clearfix">
-            <span>平面设计</span>
-            <span class="pull-right">★★★☆☆</span>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">Labels</h3>
-      <div class="widget-body">
-        
-        <span class="label label-default mb">Android</span>
-        
-        <span class="label label-default mb">OpenGL</span>
-        
-        <span class="label label-default mb">LeetCode</span>
-        
-        <span class="label label-default mb">Other</span>
-        
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">Works</h3>
-      <div class="widget-body">
-        <ul class="work-list lh-2x">
-          
-          <li class="clearfix">
-            <a href="http://www.example.com" target="_blank" title="name">
-              <span>name</span>
-              <span class="pull-right text-muted">2016</span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-    
-    <div class="widget">
-      <h3 class="widget-title">Projects</h3>
-      <div class="widget-body">
-        <ul class="project-list list-square lh-2x">
-          
-          <li class="public source">
-            <a href="https://github.com/zcbiner/beat-algorithm" target="_blank" title="zcbiner/beat-algorithm">
-              <span class="repo-icon octicon octicon-repo"></span>
-              <span class="repo-and-owner css-truncate-target">zcbiner/beat-algorithm</span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</aside>
+  
 <main class="main" role="main">
-  <article class="article archives-about article-type-normal" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">关于</h1>
+  <div class="content">
+  <article id="post-v8引擎编译" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    <p class="text-muted">个人简介</p>
-    
-  </header>
-  <div class="article-body">
-    <p>一位还在好好努力的Android开发。</p>
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      v8引擎编译
+    </h1>
+  
 
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/08/03/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91/" class="article-date">
+	  <time datetime="2021-08-03T10:54:17.000Z" itemprop="datePublished">2021-08-03</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2021/08/03/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91/" class="leancloud_visitors"  data-flag-title="v8引擎编译">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/08/03/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91/#comments" class="article-comment-link">Comments</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 261(words)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Count: 1(minutes)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>在Linux环境下编译出<a target="_blank" rel="noopener" href="https://github.com/v8/v8">v8引擎</a>的Android so包。</p>
+<h3 id="一、v8引擎代码下载"><a href="#一、v8引擎代码下载" class="headerlink" title="一、v8引擎代码下载"></a>一、v8引擎代码下载</h3><p>v8引擎代码需要使用 <a target="_blank" rel="noopener" href="http://www.chromium.org/developers/how-tos/install-depot-tools">depot tools</a> 下载，首先在本地找一个合适的路径下载该工具：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git</span><br></pre></td></tr></table></figure>
+
+<p>然后将depot tools加入环境变量：（需要将实际的目录替换下面命令中的 <code>/depot_tools</code>）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/depot_tools:$PATH</span><br></pre></td></tr></table></figure>
+
+<p>然后再找一个目录存放v8源码，在该目录下执行以下两条命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fetch v8</span><br><span class="line">gclient sync</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、编译"><a href="#二、编译" class="headerlink" title="二、编译"></a>二、编译</h3><p>cd到v8引擎源码的根目录下，先执行如下两个脚本，安装build过程需要的工具。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./build/install-build-deps.sh</span><br><span class="line">./build/install-build-deps-android.sh</span><br></pre></td></tr></table></figure>
+
+<p><code>Ninja</code>是一个构建系统，与 <code>Make</code> 类似。如果 <code>Ninja</code> 没有安装，需要提前安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ninja-build</span><br></pre></td></tr></table></figure>
+
+<p>先编译一个x64版本的包，确保整个编译环境是ok的。这个过程比较漫长，需要耐心等待。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tools/dev/v8gen.py x64.release </span><br><span class="line">ninja -C out.gn/x64.release</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后，可以找到该文件夹：<code>out.gn/x64.release</code>。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2021/08/03/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91/" title="v8引擎编译" target="_blank" rel="external">http://example.com/2021/08/03/v8%E5%BC%95%E6%93%8E%E7%BC%96%E8%AF%91/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zcbiner" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zcbiner" target="_blank"><span class="text-dark">cbin</span><small class="ml-1x">Android Developer</small></a></h3>
+        <div>日拱一卒无有尽，功不唐捐终入海。</div>
+      </div>
+    </figure>
   </div>
-</article>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
 
   
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2021/04/27/Android%E6%8E%A5%E5%85%A5aar%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="Android接入aar问题汇总"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 </main>
@@ -528,6 +580,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'pIGY7aDYCq56mxkWYiXvIbNM-gzGzoHsz',
+    appKey: 'kGvIapMMMU5s3ReaeCws0bDw',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
 
 
 
